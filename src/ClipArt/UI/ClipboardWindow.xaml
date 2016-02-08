@@ -1,0 +1,29 @@
+﻿<Window x:Class="ClipArt.UI.ClipboardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ClipboardWindow" Height="300" Width="300" 
+        WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False">
+    <Grid>
+        <StackPanel>
+            <DataGrid Name="DataGrid" ItemsSource="{Binding ClipboardEntityView}" AutoGenerateColumns="false">
+                <DataGrid.ItemContainerStyle>
+                    <Style TargetType="DataGridRow">
+                        <EventSetter Event="Selected" Handler ="DataRow_Selected"></EventSetter>
+                    </Style>
+                </DataGrid.ItemContainerStyle>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header=""  Width="16" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Width="16" Height="16" Source="{Binding Image}"></Image>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Content" Binding="{Binding Data}"/>
+                    <!--<DataGridTextColumn Header="Content" Binding="{Binding Data}"/>-->
+                    <!--<DataGridTextColumn Binding="{Binding DateTime, StringFormat=\{0:dd.MM.yy HH:mm:ss\}}" />-->
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Window>

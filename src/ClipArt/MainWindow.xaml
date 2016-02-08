@@ -1,0 +1,49 @@
+﻿<Window x:Class="ClipArt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ClipArt Config" Height="350" Width="525"
+        Icon ="Red.ico"
+        Background="{DynamicResource MainBackgroundBrush}">
+    <DockPanel>
+        <Border Height="50" DockPanel.Dock="Top" BorderBrush="{DynamicResource BorderBrush}" Background ="DimGray"  BorderThickness="0,0,0,1" x:Name="HeaderBorder" Padding="10,0,10,0">
+        <DockPanel x:Name="Header">
+            <TextBlock xml:space="preserve" Opacity="1" FontFamily="Segoe UI" FontSize="24" FontStretch ="Normal" FontWeight ="Light" TextWrapping="Wrap" Foreground="{DynamicResource HeaderFontColor}" VerticalAlignment="Bottom" Margin="0,0,0,5"><Run Foreground="#FFCFD3DA">Clip</Run><Run FontWeight="Normal">Art</Run></TextBlock>
+        </DockPanel>
+    </Border>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width ="250"></ColumnDefinition>
+                <ColumnDefinition Width ="Auto"></ColumnDefinition>
+                <ColumnDefinition Width ="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TreeView HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="5,5,5,5" Loaded="TreeView_Loaded" SelectedItemChanged="TreeView_SelectedItemChanged" Background="AliceBlue" Grid.Column="0">
+                <TreeViewItem Header="Popup Hotkeys" IsExpanded="False" Selected ="TreeViewItem_Selected">
+                    <TreeViewItem Header="Alternatives" IsExpanded="False" Selected ="TreeViewItem_Selected"/>
+                </TreeViewItem>
+                <TreeViewItem Header="Clipboard Monitoring" IsExpanded="False" Selected ="TreeViewItem_Selected">
+                    <TreeViewItem Header="History" IsExpanded ="False" Selected ="TreeViewItem_Selected"/>
+                    <TreeViewItem Header="Text Clips" IsExpanded ="False" Selected ="TreeViewItem_Selected"/>
+                    <TreeViewItem Header="Media Clips" IsExpanded ="False" Selected ="TreeViewItem_Selected"/>
+                </TreeViewItem>
+                <TreeViewItem Header="Popup" IsExpanded="False" Selected ="TreeViewItem_Selected">
+                    <TreeViewItem Header="Behavior" IsExpanded ="False" Selected ="TreeViewItem_Selected"/>
+                    <TreeViewItem Header="Keystrokes / Clicks" IsExpanded ="False" Selected ="TreeViewItem_Selected"/>
+                    <TreeViewItem Header="Per-Program Options" IsExpanded ="False" Selected ="TreeViewItem_Selected"/>
+                    <TreeViewItem Header="Tooltip Hint" IsExpanded ="False" Selected ="TreeViewItem_Selected"/>
+                </TreeViewItem>
+                <TreeViewItem Header="Popup Presentation" IsExpanded ="False" Selected ="TreeViewItem_Selected">
+                    <TreeViewItem Header="Menu Items" IsExpanded ="False" Selected ="TreeViewItem_Selected"/>
+                    <TreeViewItem Header="Clip Sets" IsExpanded ="False" Selected ="TreeViewItem_Selected"/>
+                    <TreeViewItem Header="Color Scheme" IsExpanded ="False" Selected ="TreeViewItem_Selected"/>
+                </TreeViewItem>
+                <TreeViewItem Header="Misc" IsExpanded="False" Selected ="TreeViewItem_Selected">
+                    <TreeViewItem Header="Clipboard Bar" IsExpanded ="False" Selected ="TreeViewItem_Selected"/>
+                    <TreeViewItem Header="Trigger Window" IsExpanded ="False" Selected ="TreeViewItem_Selected"/>
+                    <TreeViewItem Header="Jump List" IsExpanded ="False" Selected ="TreeViewItem_Selected"/>
+                </TreeViewItem>
+            </TreeView>
+            <GridSplitter HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.Column="1" ResizeBehavior="PreviousAndNext" Width="5" Background="#FFBCBCBC"></GridSplitter>
+            <Label Content="Right" Grid.Column="2"></Label>
+        </Grid>
+    </DockPanel>
+</Window>
